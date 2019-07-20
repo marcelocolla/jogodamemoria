@@ -23,4 +23,7 @@ export default {
         border-style: solid;
         border-color: ${theme.border};
     `,
+
+    radius: `border-radius: ${layout.radius}; `,
+    radiusSmall: `border-radius: ${layout.radius / 2}; `,
 }
