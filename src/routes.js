@@ -1,8 +1,9 @@
 import { createAppContainer, createStackNavigator } from 'react-navigation'
 
 import Home from '~/pages/Home'
+import Game from '~/pages/Game'
 
-const RouteConfigs = { Home },
+const RouteConfigs = { Home, Game },
     SwitchNavigatorConfig = {
         initialRouteName: 'Home',
         headerMode: 'none',

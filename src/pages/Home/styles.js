@@ -7,6 +7,7 @@ import { Router } from '~/components/basic'
 export const Box = styled(Router)`
     justify-content: center;
     align-items: stretch;
+    padding: ${layout.gutter}px;
     background-color: ${theme.primary.base};
 `
 
