@@ -22,6 +22,7 @@ const BaralhoList = props => {
 
     return (
         <FlatList
+            contentContainerStyle={{ paddingBottom: 24 }}
             numColumns={numColumns}
             data={playingCards}
             keyExtractor={keyExtractor}

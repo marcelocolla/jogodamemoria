@@ -23,6 +23,7 @@ const RankingList = props => {
 
     return (
         <FlatList
+            contentContainerStyle={{ paddingBottom: 24 }}
             data={records}
             keyExtractor={keyExtractor}
             renderItem={renderItem}

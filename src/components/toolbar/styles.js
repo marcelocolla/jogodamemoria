@@ -9,7 +9,7 @@ export const Box = styled.View`
     border-top-width: 1;
     padding-horizontal: ${layout.gutter};
     padding-top: ${layout.gutter / 2};
-    padding-bottom: ${layout.statusBar};
+    padding-bottom: ${layout.statusBarBottom};
     align-items: center;
     justify-content: space-between;
 `
