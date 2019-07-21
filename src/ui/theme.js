@@ -18,7 +18,7 @@ export default {
 
     cards: {
         base: '#DBDBDB',
-        visible: '#DBCE96',
+        visible: '#D1CCDD',
         complete: '#A8E0AA',
     },
 }
