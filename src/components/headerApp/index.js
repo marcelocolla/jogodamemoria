@@ -3,12 +3,17 @@ import { useSelector } from 'react-redux'
 
 import { Box, BtnBack, Text, Ico } from './styles'
 
+import NavigatorService from '~/services/navigation'
+
 const headerApp = props => {
-    const { countRound } = useSelector(state => state.playing)
+    const { name } = useSelector(state => state.auth),
+        goBack = () => {
+            NavigatorService.goBack()
+        }
 
     return (
         <Box>
-            <BtnBack>
+            <BtnBack onPress={goBack}>
                 <Ico name="chevron-left" />
             </BtnBack>
 
