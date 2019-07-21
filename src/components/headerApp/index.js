@@ -17,7 +17,7 @@ const headerApp = props => {
                 <Ico name="chevron-left" />
             </BtnBack>
 
-            <Text>Nome usuário {countRound}</Text>
+            <Text>{name}</Text>
         </Box>
     )
 }

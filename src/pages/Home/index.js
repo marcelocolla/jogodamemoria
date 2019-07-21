@@ -1,13 +1,22 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { useDispatch } from 'react-redux'
+
+import { Types as AuthTypes } from '~/store/ducks/auth'
 
 import { Box, Title, Label, TextInput } from './styles'
 
 import Btn from '~/components/button'
 
 const PageHome = props => {
-    const onPlayGame = () => {
-        props.navigation.navigate('Game')
-    }
+    const [name, setName] = useState(''),
+        dispatch = useDispatch(),
+        onPlayGame = () => {
+            const data = {
+                name,
+            }
+
+            dispatch({ type: AuthTypes.SAVE_USER, data })
+        }
 
     return (
         <Box>
@@ -21,6 +30,8 @@ const PageHome = props => {
                 placeholder="Seu nome"
                 maxLength={20}
                 placeholderTextColor="rgba(255,255,255, 0.6)"
+                onChangeText={text => setName(text)}
+                value={name}
             />
 
             <Btn medium onPress={onPlayGame} text="Iniciar jogo" />
