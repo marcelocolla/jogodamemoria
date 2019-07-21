@@ -1,17 +1,14 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
 
-import { Box, BtnRanking, Text, Round, RoundText, Circle, Ico } from './styles'
+import { Box, Text, Round, RoundText, Circle } from './styles'
+import BtnRanking from '~/components/button/ranking'
 
 import { PAIR_MAX } from '~/constants'
-import NavigationService from '~/services/navigation'
 
 const Toolbar = props => {
-    const { countRound, countPair } = useSelector(state => state.playing),
-        isCompleteGame = countPair === PAIR_MAX,
-        onRanking = () => {
-            NavigationService.navigate('Ranking')
-        }
+    const { countRound = 0, countPair } = useSelector(state => state.playing),
+        isCompleteGame = countPair === PAIR_MAX
 
     return (
         <Box>
@@ -23,10 +20,7 @@ const Toolbar = props => {
                 <Text>Jogadas</Text>
             </Round>
 
-            <BtnRanking onPress={onRanking}>
-                <Text>Ranking</Text>
-                <Ico name="trophy" />
-            </BtnRanking>
+            <BtnRanking />
         </Box>
     )
 }

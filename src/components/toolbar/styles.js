@@ -2,8 +2,6 @@ import styled from 'styled-components/native'
 
 import { base, layout, theme } from '~/ui'
 
-import Icon from 'react-native-vector-icons/EvilIcons'
-
 export const Box = styled.View`
     ${base.row}
     ${base.bordersolid}
@@ -14,12 +12,6 @@ export const Box = styled.View`
     padding-bottom: ${layout.statusBar};
     align-items: center;
     justify-content: space-between;
-`
-
-export const BtnRanking = styled.TouchableOpacity`
-    ${base.row}
-
-    align-items: center;
 `
 
 export const Text = styled.Text``
@@ -48,9 +40,4 @@ export const Circle = styled.View`
 
 export const RoundText = styled.Text`
     ${base.bold}
-`
-
-export const Ico = styled(Icon)`
-    font-size: 42;
-    margin-left: ${layout.gutter};
 `
