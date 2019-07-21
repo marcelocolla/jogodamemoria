@@ -1,4 +1,5 @@
 import React from 'react'
+import { StatusBar } from 'react-native'
 
 import { Router } from '~/components/basic'
 import HeaderApp from '~/components/headerApp'
@@ -9,6 +10,8 @@ import FisishGame from '~/components/finishGame'
 const PageGame = props => {
     return (
         <Router>
+            <StatusBar barStyle="light-content" />
+
             <HeaderApp />
             <FisishGame />
             <Baralho />

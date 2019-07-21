@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { StatusBar } from 'react-native'
 import { useDispatch } from 'react-redux'
 
 import { Types as AuthTypes } from '~/store/ducks/auth'
@@ -20,6 +21,7 @@ const PageHome = props => {
 
     return (
         <Box>
+            <StatusBar barStyle="light-content" />
             <Title>Memory Game</Title>
 
             <Label>Para começar a jogar insira seu nome de jogador!</Label>
