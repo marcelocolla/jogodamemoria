@@ -12,7 +12,11 @@ export default function auth(state = initialState, action = {}) {
         case Types.ADD_USER:
             const { name } = action.payload.data
 
-            return { ...state, name }
+            if (name.length) {
+                return { ...state, name }
+            }
+
+            return { ...state, name: initialState.name }
 
         default:
             return state
