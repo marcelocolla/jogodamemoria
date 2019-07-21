@@ -6,7 +6,7 @@ export const Btn = styled.TouchableOpacity`
     border-radius: 48;
     margin-top: ${layout.gutter};
     padding: ${layout.gutter}px;
-    background-color: ${theme.white.base};
+    background-color: ${theme.primary.green};
 
     ${props =>
         props.medium &&
@@ -16,7 +16,9 @@ export const Btn = styled.TouchableOpacity`
 `
 
 export const Text = styled.Text`
-    color: ${theme.text};
+    ${base.bold}
+
+    color: ${theme.dark};
     font-size: 20;
     text-align: center;
 `

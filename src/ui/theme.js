@@ -1,6 +1,7 @@
 export default {
     text: '#4A4A4A',
     border: 'rgba(0, 0, 0, 0.2)',
+    dark: '#222',
 
     white: {
         light: '#DBDBDB',
@@ -9,7 +10,8 @@ export default {
 
     primary: {
         light: '#5693A2',
-        base: '#0C2A39',
+        base: '#0C1839',
+        green: '#51e294',
     },
 
     red: {

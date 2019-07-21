@@ -29,6 +29,7 @@ export const TextInput = styled.TextInput`
     ${base.bordersolid}
     ${base.bold}
 
+    border-bottom-color: rgba(255,255,255, 0.5);
     border-bottom-width: 1;
     margin-vertical: ${layout.gutterLarge};
     padding: ${layout.gutter}px;
