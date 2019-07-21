@@ -17,6 +17,7 @@ const onShowCard = function*(action) {
 
     if (isEqCard) {
         yield put(PlayingActions.sumPairOfCards())
+        yield put(PlayingActions.verifyFinishGame())
         yield put(CardActions.updateCart({ data: lastCard, isEqCard }))
     }
 

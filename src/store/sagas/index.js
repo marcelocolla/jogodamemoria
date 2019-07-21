@@ -6,7 +6,7 @@ import { onSaveUser } from './auth'
 
 // Iniciar novo game
 import { Types as PlayingTypes } from '../ducks/playing'
-import { configureNewGame } from './playing'
+import { configureNewGame, onVerifyFinishGame } from './playing'
 
 // Cartas do baralho
 import { Types as CardTypes } from '../ducks/card'
@@ -16,6 +16,7 @@ export default function* rootSaga() {
     yield all([
         takeEvery(AuthTypes.SAVE_USER, onSaveUser),
         takeEvery(PlayingTypes.LOAD_NEW_GAME, configureNewGame),
+        takeEvery(PlayingTypes.VERIFY_FINISH_GAME, onVerifyFinishGame),
         takeEvery(CardTypes.SHOW_CARD, onShowCard),
     ])
 }

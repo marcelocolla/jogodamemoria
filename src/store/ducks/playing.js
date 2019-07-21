@@ -1,14 +1,15 @@
-import { PAIR_MAX } from '~/constants'
-
 const initialState = {
     countPair: 0,
     countRound: 0,
+    completeGame: false,
     lastCard: {},
 }
 
 export const Types = {
     LOAD_NEW_GAME: 'LOAD_NEW_GAME',
     CREATE_NEW_GAME: 'CREATE_NEW_GAME',
+    VERIFY_FINISH_GAME: 'VERIFY_FINISH_GAME',
+    COMPLETE_GAME: 'COMPLETE_GAME',
     SAVE_LAST_CARD: 'SAVE_LAST_CARD',
     SUM_PAIR_CARD: 'SUM_PAIR_CARD',
     START_NEW_ROUND_CARD: 'START_NEW_ROUND_CARD',
@@ -32,11 +33,10 @@ export default function playing(state = initialState, action = {}) {
         case Types.SUM_PAIR_CARD:
             const countPair = state.countPair + 1
 
-            if (countPair === PAIR_MAX) {
-                console.warn('fim de jogo')
-            }
-
             return { ...state, countPair }
+
+        case Types.COMPLETE_GAME:
+            return { ...state, completeGame: true }
 
         default:
             return state
@@ -61,5 +61,13 @@ export const Creators = {
 
     sumPairOfCards: () => ({
         type: Types.SUM_PAIR_CARD,
+    }),
+
+    verifyFinishGame: () => ({
+        type: Types.VERIFY_FINISH_GAME,
+    }),
+
+    completeGame: () => ({
+        type: Types.COMPLETE_GAME,
     }),
 }
