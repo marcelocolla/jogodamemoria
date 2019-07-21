@@ -1,3 +1,5 @@
+import sortByKey from '~/helpers/sortByKey'
+
 const initialState = []
 
 // RECORD fields:
@@ -13,9 +15,10 @@ export default function ranking(state = initialState, action = {}) {
     switch (action.type) {
         case Types.SAVE_RANKING:
             const { data } = action.payload,
-                newItem = { ...data, date: new Date() }
+                newItem = { ...data, date: new Date() },
+                newRecords = sortByKey([...state, newItem], 'countRound')
 
-            return [...state, newItem]
+            return newRecords
 
         default:
             return state
