@@ -1,79 +1,65 @@
-const initialState = [
-    {
-        id: 1,
-        carta: 10,
-        naipe: 'OURO',
-        complete: true,
-    },
-    {
-        id: 2,
-        carta: 1,
-        naipe: 'COPA',
-    },
-    {
-        id: 3,
-        carta: 3,
-        naipe: 'OURO',
-    },
-    {
-        id: 4,
-        carta: 9,
-        naipe: 'PAUS',
-        complete: true,
-    },
-    {
-        id: 5,
-        carta: 1,
-        naipe: 'COPA',
-        visible: true,
-    },
-    {
-        id: 6,
-        carta: 8,
-        naipe: 'PAUS',
-        visible: true,
-    },
-    {
-        id: 1,
-        carta: 5,
-        naipe: 'ESPADA',
-    },
-    {
-        id: 2,
-        carta: 1,
-        naipe: 'COPA',
-        complete: true,
-    },
-    {
-        id: 3,
-        carta: 7,
-        naipe: 'OURO',
-    },
-    {
-        id: 4,
-        carta: 10,
-        naipe: 'OURO',
-        complete: true,
-    },
-    {
-        id: 5,
-        carta: 3,
-        naipe: 'ESPADA',
-        visible: true,
-        complete: true,
-    },
-    {
-        id: 6,
-        carta: 9,
-        naipe: 'PAUS',
-        visible: true,
-        complete: true,
-    },
-]
+import { PAIR_MAX } from '~/constants'
+
+const initialState = {
+    countPair: 0,
+    countRound: 0,
+    lastCard: {},
+}
+
+export const Types = {
+    LOAD_NEW_GAME: 'LOAD_NEW_GAME',
+    CREATE_NEW_GAME: 'CREATE_NEW_GAME',
+    SAVE_LAST_CARD: 'SAVE_LAST_CARD',
+    SUM_PAIR_CARD: 'SUM_PAIR_CARD',
+    START_NEW_ROUND_CARD: 'START_NEW_ROUND_CARD',
+}
 
 export default function playing(state = initialState, action = {}) {
     switch (action.type) {
+        case Types.CREATE_NEW_GAME:
+            return initialState
+
+        case Types.SAVE_LAST_CARD:
+            const { data } = action.payload
+
+            return { ...state, lastCard: data }
+
+        case Types.START_NEW_ROUND_CARD:
+            const countRound = state.countRound + 1
+
+            return { ...state, countRound, lastCard: {} }
+
+        case Types.SUM_PAIR_CARD:
+            const countPair = state.countPair + 1
+
+            if (countPair === PAIR_MAX) {
+                console.warn('fim de jogo')
+            }
+
+            return { ...state, countPair }
+
         default:
             return state
     }
+}
+
+// Action Creators
+export const Creators = {
+    createNewGame: data => ({
+        type: Types.CREATE_NEW_GAME,
+        payload: { data },
+    }),
+
+    saveLastCard: data => ({
+        type: Types.SAVE_LAST_CARD,
+        payload: { data },
+    }),
+
+    startNewRoundCart: () => ({
+        type: Types.START_NEW_ROUND_CARD,
+    }),
+
+    sumPairOfCards: () => ({
+        type: Types.SUM_PAIR_CARD,
+    }),
 }
