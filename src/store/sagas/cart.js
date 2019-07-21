@@ -15,18 +15,18 @@ const onShowCard = function*(action) {
 
     onProcessComplete = false
 
-    if (isEqCard) {
-        yield put(PlayingActions.sumPairOfCards())
-        yield put(PlayingActions.verifyFinishGame())
-        yield put(CardActions.updateCart({ data: lastCard, isEqCard }))
-    }
-
     yield put(CardActions.updateCart({ data, isEqCard }))
 
     if (!newRound) {
         yield put(PlayingActions.saveLastCard(data))
     } else if (isEqCard || newRound) {
         yield put(PlayingActions.startNewRoundCart(data))
+
+        if (isEqCard) {
+            yield put(PlayingActions.sumPairOfCards())
+            yield put(CardActions.updateCart({ data: lastCard, isEqCard }))
+            yield put(PlayingActions.verifyFinishGame())
+        }
 
         if (newRound) {
             yield delay(750)
