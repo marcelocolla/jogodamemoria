@@ -2,7 +2,7 @@ import React from 'react'
 import { useDispatch } from 'react-redux'
 import { Types as CardTypes } from '~/store/ducks/card'
 
-import { Box } from './styles'
+import { Box, ImageBack } from './styles'
 
 import CardContent from './cardContent'
 
@@ -14,7 +14,14 @@ const BaralhoListItem = props => {
         }
 
     if (!complete && !visible) {
-        return <Box onPress={onPress} />
+        return (
+            <Box onPress={onPress}>
+                <ImageBack
+                    resizeMode="cover"
+                    source={require('../../../images/playing-cards.png')}
+                />
+            </Box>
+        )
     }
 
     return (

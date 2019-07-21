@@ -14,6 +14,13 @@ export const Box = styled.TouchableOpacity`
     ${props => props.complete && `background-color: ${theme.cards.complete}; `}
 `
 
+export const ImageBack = styled.Image`
+    ${base.radiusSmall}
+
+    width: 100%;
+    height: 100%;
+`
+
 export const Text = styled.Text`
     ${base.bold}
 
