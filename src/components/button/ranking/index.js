@@ -7,7 +7,7 @@ import NavigationService from '~/services/navigation'
 
 const ButtonRanking = props => {
     const ranking = useSelector(state => state.ranking),
-        qty = ranking.length,
+        showCount = ranking.length ? true : false,
         onRanking = () => {
             NavigationService.navigate('Ranking')
         }
@@ -17,9 +17,9 @@ const ButtonRanking = props => {
             <Text>Ranking</Text>
             <Ico name="trophy" />
 
-            {qty && (
+            {showCount && (
                 <BoxCount>
-                    <TextCount>{qty}</TextCount>
+                    <TextCount>{ranking.length}</TextCount>
                 </BoxCount>
             )}
         </BtnRanking>
