@@ -10,7 +10,7 @@ import FisishGame from '~/components/finishGame'
 const PageGame = props => {
     return (
         <Router>
-            <StatusBar barStyle="light-content" />
+            <StatusBar barStyle="light-content" backgroundColor="#0C1839" />
 
             <HeaderApp />
             <FisishGame />

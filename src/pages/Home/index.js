@@ -22,7 +22,7 @@ const PageHome = props => {
 
     return (
         <Box>
-            <StatusBar barStyle="light-content" />
+            <StatusBar barStyle="light-content" backgroundColor="#0C1839" />
             <Logo source={uriLogo} resizeMode="contain" />
 
             <Label>Para começar a jogar insira seu nome de jogador!</Label>

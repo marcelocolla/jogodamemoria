@@ -8,7 +8,7 @@ import RankingList from '~/components/ranking'
 const PageRanking = props => {
     return (
         <Router>
-            <StatusBar barStyle="light-content" />
+            <StatusBar barStyle="light-content" backgroundColor="#0C1839" />
             <HeaderApp title="Ranking dos Jogadores" />
 
             <RankingList />
