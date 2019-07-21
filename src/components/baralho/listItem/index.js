@@ -1,4 +1,6 @@
 import React from 'react'
+import { useDispatch } from 'react-redux'
+import { Types as CardTypes } from '~/store/ducks/card'
 
 import { Box } from './styles'
 
@@ -6,7 +8,10 @@ import CardContent from './cardContent'
 
 const BaralhoListItem = props => {
     const { visible, complete } = props.data,
-        onPress = () => {}
+        dispatch = useDispatch(),
+        onPress = () => {
+            dispatch(showCartAction(props.data))
+        }
 
     if (!complete && !visible) {
         return <Box onPress={onPress} />
@@ -22,5 +27,10 @@ const BaralhoListItem = props => {
         </Box>
     )
 }
+
+const showCartAction = data => ({
+    type: CardTypes.SHOW_CARD,
+    data,
+})
 
 export default BaralhoListItem
