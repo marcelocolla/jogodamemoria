@@ -1,0 +1,4 @@
+const PAIR_MAX = 6,
+    NAIPE_BARALHO = ['OURO', 'COPA', 'ESPADA', 'PAUS']
+
+export { PAIR_MAX, NAIPE_BARALHO }
