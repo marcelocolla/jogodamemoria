@@ -4,12 +4,13 @@ import { useDispatch } from 'react-redux'
 
 import { Types as AuthTypes } from '~/store/ducks/auth'
 
-import { Box, Title, Label, TextInput } from './styles'
+import { Box, Logo, Label, TextInput } from './styles'
 
 import Btn from '~/components/button'
 
 const PageHome = props => {
     const [name, setName] = useState(''),
+        uriLogo = require('../../images/memory-game.png'),
         dispatch = useDispatch(),
         onPlayGame = () => {
             const data = {
@@ -22,7 +23,7 @@ const PageHome = props => {
     return (
         <Box>
             <StatusBar barStyle="light-content" />
-            <Title>Memory Game</Title>
+            <Logo source={uriLogo} resizeMode="contain" />
 
             <Label>Para começar a jogar insira seu nome de jogador!</Label>
 

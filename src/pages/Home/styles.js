@@ -5,19 +5,18 @@ import { base, layout, theme } from '~/ui'
 import { Router } from '~/components/basic'
 
 export const Box = styled(Router)`
-    justify-content: center;
+    justify-content: flex-start;
     align-items: stretch;
     padding: ${layout.gutter}px;
     background-color: ${theme.primary.base};
 `
 
-export const Title = styled.Text`
-    ${base.bold}
-
-    font-size: 42;
-    text-align: center;
-    color: ${theme.white.base};
-    margin-bottom: ${layout.gutterLarge * 2};
+export const Logo = styled.Image`
+    margin-top: ${layout.statusBar + 16};
+    margin-bottom: ${layout.gutterLarge + 16};
+    margin-left: 10%;
+    width: 80%;
+    height: 120px;
 `
 
 export const Label = styled.Text`
